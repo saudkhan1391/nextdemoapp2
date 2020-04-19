@@ -13,7 +13,7 @@ const Home = (props) => {
       alert("Logged In");
       const { pathname } = Router
       // if (pathname == '/Login') {
-      Router.push('/Home')
+      Router.push('/dashboard')
       // }
     }).catch((e) => { alert(e.message) })
   }
