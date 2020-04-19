@@ -10,10 +10,10 @@ const Home = (props) => {
     console.log("email", email)
     console.log("password", password)
     firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
-      alert("Logged In");
-      const { pathname } = Router
+      alert("Logged In.");
+      // const { pathname } = Router
       // if (pathname == '/Login') {
-      Router.push('/dashboard')
+      Router.push('/Dashboard')
       // }
     }).catch((e) => { alert(e.message) })
   }
