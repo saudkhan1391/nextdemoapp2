@@ -6,15 +6,15 @@ import Button from '@material-ui/core/Button';
 const Home = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const register = () => {
+  const login = () => {
     console.log("email", email)
     console.log("password", password)
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-      alert("Registered");
+    firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+      alert("Logged In");
       const { pathname } = Router
-      if (pathname == '/') {
-        Router.push('/Login')
-      }
+      // if (pathname == '/Login') {
+      Router.push('/Home')
+      // }
     }).catch((e) => { alert(e.message) })
   }
   return (
@@ -25,29 +25,22 @@ const Home = (props) => {
       </Head>
       <div className="hero">
         <div className="loginContainer">
-          <h1 className="registerText">Register</h1>
-          <h2>Email</h2>
+          <h2>Login</h2>
           <input onChange={(text) => { setEmail(text.target.value) }} placeholder="youremail@gmail.com" className="emailinput" />
           <h2>Password</h2>
           <input onChange={(text) => { setPassword(text.target.value) }} placeholder="******" className="emailinput" />
-          <div style={{ marginTop: 40 }}>
-            <Button variant="contained" color="primary" onClick={() => { register() }}  >
-              Register
+          <div>
+            <Button variant="contained" color="primary" style={{ marginTop: 40, paddingLeft: 20, paddingRight: 20 }} onClick={() => { login() }}>
+              Login
             </Button>
           </div>
         </div>
-
       </div>
 
       <style jsx>{`
-      .registerText{
-        color: grey;
-        text-align: center;
-      }
       :global(body) {
-        background-color: black;
-        padding:0;
-        margin: 0px;
+        background-color: red;
+        margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
           Helvetica, sans-serif;
       }
