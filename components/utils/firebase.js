@@ -15,6 +15,7 @@ let InitFirebase;
 // if (!firebase.apps.length) {
 //     InitFirebase = firebase.initializeApp(firebaseConfig);
 // }
+//
 try{
     InitFirebase = firebase.initializeApp(firebaseConfig);
     console.log( "database in utils",firebase.database());
