@@ -12,9 +12,9 @@ const Home = (props) => {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
       alert("Registered");
       const { pathname } = Router
-      if (pathname == '/') {
-        Router.push('/Login')
-      }
+      // if (pathname == '/') {
+        Router.push('/login')
+      // }
     }).catch((e) => { alert(e.message) })
   }
   return (
